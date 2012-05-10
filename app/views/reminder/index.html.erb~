@@ -1,2 +1,7 @@
-<h1>Reminder#index</h1>
-<p>Find me in app/views/reminder/index.html.erb</p>
+<h1>Twilio API demo</h1>
+<h2 style="color: #ff0000"><%= params['msg'] %></h2>
+<h3>Enter your phone number</h3>
+<form action="/appointmentreminder/makecall" method="post">
+    <input type="text" name="number" />
+    <input type="submit" value="Call me!">
+</form>
