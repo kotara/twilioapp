@@ -5,5 +5,6 @@ class ApplicationController < ActionController::Base
 		@sometext = params['sometext']
       respond_to do |format|
         format.xml
+			end
 	end
 end
