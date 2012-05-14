@@ -57,7 +57,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
     end
 
     if !params['Digits'] or params['Digits'] != '2'
-      redirect_to :action => '/reminder'
+      redirect_to :action => 'reminder'
       return
     end
 

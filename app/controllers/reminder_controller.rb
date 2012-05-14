@@ -16,7 +16,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   def makecall
     if !params['number']
       redirect_to :action => '.', 'msg' => 'Invalid phone number'
-      return
+      return		
     end
 
     # parameters sent to Twilio REST API
