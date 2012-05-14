@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+<Say voice="woman">Hello this is a call from Twilio. You have an appointment yesterday at 9 AM.</Say>
+<Say voice="woman">Please press 1 to repeat this menu. Press 2 for directions. Or press 3 if you are done.</Say>
+</Response>
+
+

@@ -16,7 +16,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   def makecall
     if !params['number']
       redirect_to :action => '.', 'msg' => 'Invalid phone number'
-      return		
+      return
     end
 
     # parameters sent to Twilio REST API
@@ -43,7 +43,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder
     @post_to = BASE_URL + '/directions'
-    render :action => "reminder.xml.builder", :layout => false 
+    render :action => "reminder.xml", :layout => false 
   end
 
   # TwiML response that inspects the caller's menu choice:
@@ -62,14 +62,14 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
     end
 
     @redirect_to = BASE_URL + '/reminder'
-    render :action => "directions.xml.builder", :layout => false 
+    render :action => "directions.xml", :layout => false 
   end
 
 
   # TwiML response saying with the goodbye message. Twilio will detect no
   # further commands after the Say and hangup
   def goodbye
-    render :action => "goodbye.xml.builder", :layout => false 
+    render :action => "goodbye.xml", :layout => false 
   end
 
 end
