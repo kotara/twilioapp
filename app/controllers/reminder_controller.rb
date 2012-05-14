@@ -45,7 +45,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   def reminder
 		@sometext = params['sometext']
     @post_to = BASE_URL + '/directions'
-    render :action => "reminder.xml", :layout => false 
+    render :action => "reminder.xml.builder", :layout => false 
   end
 
   # TwiML response that inspects the caller's menu choice:
