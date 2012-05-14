@@ -36,7 +36,7 @@ CALLER_ID = '442033222275'
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder
     @post_to = BASE_URL + '/directions'
-    render :action => "reminder.xml.erb", :layout => false 
+    render :action => "reminder.xml.builder", :layout => false 
   end
 
   # TwiML response that inspects the caller's menu choice:

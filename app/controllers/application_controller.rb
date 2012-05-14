@@ -3,5 +3,7 @@ class ApplicationController < ActionController::Base
 	before_filter :message
 	def message
 		@sometext = params['sometext']
+      respond_to do |format|
+        format.xml
 	end
 end
