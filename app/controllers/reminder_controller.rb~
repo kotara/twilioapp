@@ -4,14 +4,16 @@ class ReminderController < ApplicationController
 ACCOUNT_SID = 'ACbd3c6e9c02244c0293f66680cfbebaa5'
 ACCOUNT_TOKEN = '4cd9bd691fd4bd2430fc2172ecd515b4'
 # base URL of this application
-BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
+BASE_URL = "http://afternoon-window-3794.heroku.com"
 
   # Outgoing Caller ID you have previously validated with Twilio
   CALLER_ID = '442033222275'
 
   def index
   end
-
+def set_message
+@sometext = params['sometext']
+end
   # Use the Twilio REST API to initiate an outgoing call
   def makecall
     if !params['number']
@@ -34,7 +36,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
       return
     end
 
-    redirect_to :action => '', 'msg' => "Calling #{params['number']}...@sometext"
+    redirect_to :action => '', 'msg' => "Calling #{params['number']}...+@sometext"
   end
 
 
