@@ -1,6 +1,5 @@
 require 'twilio-ruby'
 class ReminderController < ApplicationController
-@sometext = params['sometext']
 # your Twilio authentication credentials
 ACCOUNT_SID = 'ACbd3c6e9c02244c0293f66680cfbebaa5'
 ACCOUNT_TOKEN = '4cd9bd691fd4bd2430fc2172ecd515b4'
