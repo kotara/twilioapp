@@ -29,7 +29,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
       client = Twilio::REST::Client.new(ACCOUNT_SID, ACCOUNT_TOKEN)
       client.account.calls.create data
     rescue StandardError => bang
-      redirect_to :action => '.', 'msg' => "Error #{bang}"
+      redirect_to :action => '.', 'msg' => "#{$sometext}+Error #{bang}"
       return
     end
 
@@ -43,10 +43,10 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   # TwiML response that reads the reminder to the caller and presents a
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder
-
     @post_to = BASE_URL + '/directions'
     render :action => "reminder.xml.builder", :layout => false 
   end
+
 
   # TwiML response that inspects the caller's menu choice:
   # - says good bye and hangs up if the caller pressed 3
@@ -62,7 +62,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
       redirect_to :action => 'reminder'
       return
     end
-		@sometext = params['sometext']
+
     @redirect_to = BASE_URL + '/reminder'
     render :action => "directions.xml.builder", :layout => false 
   end
@@ -73,6 +73,6 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   def goodbye
     render :action => "goodbye.xml.builder", :layout => false 
   end
-
+	$sometext = params['sometext']
 end
 

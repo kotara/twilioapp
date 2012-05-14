@@ -10,7 +10,6 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   CALLER_ID = '442033222275'
 
   def index
-		@sometext = params['sometext']
   end
   # Use the Twilio REST API to initiate an outgoing call
   def makecall
@@ -30,7 +29,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
       client = Twilio::REST::Client.new(ACCOUNT_SID, ACCOUNT_TOKEN)
       client.account.calls.create data
     rescue StandardError => bang
-      redirect_to :action => '.', 'msg' => "Error #{bang}"
+      redirect_to :action => '.', 'msg' => "#{@sometext}+Error #{bang}"
       return
     end
 
@@ -48,6 +47,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
     render :action => "reminder.xml.builder", :layout => false 
   end
 
+
   # TwiML response that inspects the caller's menu choice:
   # - says good bye and hangs up if the caller pressed 3
   # - repeats the menu if caller pressed any other digit besides 2 or 3
@@ -62,6 +62,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
       redirect_to :action => 'reminder'
       return
     end
+
     @redirect_to = BASE_URL + '/reminder'
     render :action => "directions.xml.builder", :layout => false 
   end
@@ -72,6 +73,6 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   def goodbye
     render :action => "goodbye.xml.builder", :layout => false 
   end
-
+	$sometext = params['sometext']
 end
 
