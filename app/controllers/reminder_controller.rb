@@ -34,7 +34,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
       return
     end
 
-    redirect_to :action => '', 'msg' => "Calling #{params['number']}...#{params["sometext"]}"
+    redirect_to :action => '', 'msg' => "Calling #{params['number']}...#{params['sometext']}"
   end
 
 
