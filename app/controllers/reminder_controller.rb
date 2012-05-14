@@ -18,6 +18,10 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
       redirect_to :action => '.', 'msg' => 'Invalid phone number'
       return
     end
+    if params['sometext']
+      redirect_to :action => '.', 'msg' => "#{params['sometext']}"
+      return
+    end
 
     # parameters sent to Twilio REST API
     data = {

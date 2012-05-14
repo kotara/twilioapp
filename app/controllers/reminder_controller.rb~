@@ -43,7 +43,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder
     @post_to = BASE_URL + '/directions'
-    render :action => "reminder.xml", :layout => false 
+    render :action => "reminder.xml.builder", :layout => false 
   end
 
   # TwiML response that inspects the caller's menu choice:
@@ -69,7 +69,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   # TwiML response saying with the goodbye message. Twilio will detect no
   # further commands after the Say and hangup
   def goodbye
-    render :action => "goodbye.xml", :layout => false 
+    render :action => "goodbye.xml.builder", :layout => false 
   end
 
 end
