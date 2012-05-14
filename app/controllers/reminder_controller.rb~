@@ -15,11 +15,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   # Use the Twilio REST API to initiate an outgoing call
   def makecall
     if !params['number']
-      redirect_to :action => '.', 'msg' => 'Invalid phone number'
-      return
-    end
-    if params['sometext']
-      redirect_to :action => '.', 'msg' => "#{params['sometext']}"
+      redirect_to :action => '.', 'msg' => 'Invalid phone number #{params["sometext"]}'
       return
     end
 
