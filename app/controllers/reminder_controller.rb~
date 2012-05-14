@@ -62,7 +62,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
     end
 
     @redirect_to = BASE_URL + '/reminder'
-    render :action => "directions.xml", :layout => false 
+    render :action => "directions.xml.builder", :layout => false 
   end
 
 
