@@ -33,7 +33,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
       return
     end
 
-    redirect_to :action => '', 'msg' => "Calling #{params['number']}...#{params['sometext']}"
+    redirect_to :action => '', 'msg' => "Calling #{params['number']}...#@sometext"
   end
 
 
@@ -43,6 +43,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
   # TwiML response that reads the reminder to the caller and presents a
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder
+		@sometext = params['sometext']
     @post_to = BASE_URL + '/directions'
     render :action => "reminder.xml.builder", :layout => false 
   end
