@@ -21,7 +21,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="reminder") Authproviders
+          %a.brand(href="reminder") Call me
           .container.nav-collapse
             %ul.nav
               - if user_signed_in?
