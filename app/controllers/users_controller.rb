@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @users = User.all
 
     respond_to do |format|
-      format.haml # index.html.erb
+      format.html # index.html.erb
       format.json { render json: @users }
     end
   end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      format.haml # show.html.erb
+      format.html # show.html.erb
       format.json { render json: @user }
     end
   end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new
 
     respond_to do |format|
-      format.haml # new.html.erb
+      format.html # new.html.erb
       format.json { render json: @user }
     end
   end
@@ -44,10 +44,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.haml { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
-        format.haml { render action: "new" }
+        format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -60,10 +60,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.haml { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
-        format.haml { render action: "edit" }
+        format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -76,7 +76,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.haml { redirect_to users_url }
+      format.html { redirect_to users_url }
       format.json { head :no_content }
     end
   end
