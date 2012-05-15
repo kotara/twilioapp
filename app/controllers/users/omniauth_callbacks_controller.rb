@@ -1,4 +1,4 @@
-class Users::OmniauthCallbacksControllerController < Devise::OmniauthCallbacksController
+class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     @user = User.find_for_facebook_oauth request.env["omniauth.auth"]
     if @user.persisted?
@@ -9,7 +9,4 @@ class Users::OmniauthCallbacksControllerController < Devise::OmniauthCallbacksCo
       redirect_to root_path
     end
 	end
-
-  def vkontakte
-  end
 end
