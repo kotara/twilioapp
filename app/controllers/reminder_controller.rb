@@ -26,10 +26,10 @@ CALLER_ID = '442033222275'
       client = Twilio::REST::Client.new(ACCOUNT_SID, ACCOUNT_TOKEN)
       client.account.calls.create data
     rescue StandardError => bang
-      redirect_to :action => '.', 'msg' => "#{$sometext}+Error #{bang}"
+      redirect_to :action => '.', 'msg' => "#{@sometext}+Error #{bang}"
       return
     end
-    redirect_to :action => '', 'msg' => "Calling #{params['number']}...#{$sometext}+blah"
+    redirect_to :action => '', 'msg' => "Calling #{params['number']}...#{@sometext}+blah"
   end
 
   # TwiML response that reads the reminder to the caller and presents a
