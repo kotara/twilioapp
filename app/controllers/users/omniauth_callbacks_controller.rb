@@ -8,6 +8,7 @@ class Users::OmniauthCallbacksControllerController < Devise::OmniauthCallbacksCo
       flash[:notice] = "authentication error"
       redirect_to root_path
     end
+	end
 
   def vkontakte
   end
