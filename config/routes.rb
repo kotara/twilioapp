@@ -1,4 +1,15 @@
 Reminder::Application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :users, :only => [:index, :destroy]
+  root :to => 'users#index' 
+ get "omniauth_callbacks/facebook"
+
+  get "omniauth_callbacks/vkontakte"
+
+  devise_for :users
+
+  resources :users
+
   get "reminder/index"
  match ':controller(/:action(.:format))'
  match ':controller(/:action(/:id))(.:format)'

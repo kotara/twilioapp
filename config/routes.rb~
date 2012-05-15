@@ -1,6 +1,15 @@
 Reminder::Application.routes.draw do
+  get "omniauth_callbacks/facebook"
+
+  get "omniauth_callbacks/vkontakte"
+
+  devise_for :users
+
+  resources :users
+
   get "reminder/index"
-match ':controller(/:action(/:id))(.:format)'
+ match ':controller(/:action(.:format))'
+ match ':controller(/:action(/:id))(.:format)'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
