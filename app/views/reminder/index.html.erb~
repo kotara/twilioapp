@@ -3,7 +3,7 @@
 
 <form action="/reminder/makecall" method="post">
 		<h3>Enter your message</h3>
-		<input type="text" name="sometext"><br />
+		<input type="text" name="sometext">
 <h3>Enter your phone number</h3>
     <input type="text" name="number" />
     <input type="submit" value="Call me!">
