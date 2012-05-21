@@ -13,6 +13,10 @@ CALLER_ID = '442033222275'
   end
   # Use the Twilio REST API to initiate an outgoing call
   def makecall
+    @sometext = 'very very long text'
+    	respond_to do |format|
+      format.xml
+   	end
     if !params['number']
       redirect_to :action => '.', 'msg' => 'Invalid phone number'
       return
