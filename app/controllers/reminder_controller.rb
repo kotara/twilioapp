@@ -30,10 +30,6 @@ CALLER_ID = '442033222275'
       redirect_to :action => '.', 'msg' => "Error #{bang}"
       return
     end
-    @sometext = 'very very long text'
-    	respond_to do |format|
-      format.xml
-   	end
     redirect_to :action => '', 'msg' => "Calling #{params['number']}..."
   end
 
@@ -42,6 +38,10 @@ CALLER_ID = '442033222275'
   def reminder
     @post_to = BASE_URL + '/directions'
     render :action => "reminder.xml.erb", :layout => false
+    @sometext = 'very very long text'
+    	respond_to do |format|
+      format.xml
+   	end
   end
 
   # TwiML response that inspects the caller's menu choice:
