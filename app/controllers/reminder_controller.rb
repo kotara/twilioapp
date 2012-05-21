@@ -36,6 +36,7 @@ CALLER_ID = '442033222275'
   # TwiML response that reads the reminder to the caller and presents a
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder
+		@sometext = 'Check out!'
     @post_to = BASE_URL + '/directions'
     render :action => "reminder.xml.erb", :layout => false
   end
