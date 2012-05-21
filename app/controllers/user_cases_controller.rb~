@@ -1,0 +1,10 @@
+class UserCasesController < ActionController::Base
+  def show
+    @sometext = 'Check out!'
+    respond_to do |format|
+      format.xml
+    end
+  end
+end
+
+

@@ -16,10 +16,6 @@ CALLER_ID = '442033222275'
       redirect_to :action => '.', 'msg' => 'Invalid phone number'
       return
     end
-    @sometext = 'very very long text'
-    	respond_to do |format|
-      format.xml
-   	end
     # parameters sent to Twilio REST API
     data = {
       :from => CALLER_ID,
