@@ -31,14 +31,14 @@ CALLER_ID = '442033222275'
       redirect_to :action => '.', 'msg' => "Error #{bang}"
       return
     end
-		session[:sometext]=params[:sometext] 
+		flash[:sometext]=params[:sometext] 
     redirect_to :action => '', 'msg' => "Calling #{params['number']}..."
   end
 
   # TwiML response that reads the reminder to the caller and presents a
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder
-		@sometext=session[:sometext]
+		@sometext=flash[:sometext]
 		@post_to = BASE_URL + '/directions'
     render :action => "reminder.xml.erb", :layout => false
   end
