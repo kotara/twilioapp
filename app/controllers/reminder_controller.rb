@@ -13,10 +13,6 @@ CALLER_ID = '442033222275'
   end
   # Use the Twilio REST API to initiate an outgoing call
   def makecall
-    @sometext = 'very very long text'
-    	respond_to do |format|
-      format.xml
-   	end
     if !params['number']
       redirect_to :action => '.', 'msg' => 'Invalid phone number'
       return
@@ -34,13 +30,16 @@ CALLER_ID = '442033222275'
       redirect_to :action => '.', 'msg' => "Error #{bang}"
       return
     end
+    @sometext = 'very very long text'
+    	respond_to do |format|
+      format.xml
+   	end
     redirect_to :action => '', 'msg' => "Calling #{params['number']}..."
   end
 
   # TwiML response that reads the reminder to the caller and presents a
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
-  def reminder   
-
+  def reminder
     @post_to = BASE_URL + '/directions'
     render :action => "reminder.xml.erb", :layout => false
   end
