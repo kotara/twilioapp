@@ -16,7 +16,7 @@ CALLER_ID = '442033222275'
       redirect_to :action => '.', 'msg' => 'Invalid phone number'
       return
     end
-		@sometext = params['sometext']
+		@sometext = 'sometext'
     # parameters sent to Twilio REST API
     data = {
       :from => CALLER_ID,
