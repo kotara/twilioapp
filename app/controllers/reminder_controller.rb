@@ -9,7 +9,6 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
 CALLER_ID = '442033222275'
 
   def index
-
   end
   # Use the Twilio REST API to initiate an outgoing call
   def makecall
@@ -17,12 +16,17 @@ CALLER_ID = '442033222275'
       redirect_to :action => '.', 'msg' => 'Invalid phone number'
       return
     end
+    @sometext = 'very very long text'
+    	respond_to do |format|
+      format.xml
+   	end
     # parameters sent to Twilio REST API
     data = {
       :from => CALLER_ID,
       :to => params['number'],
       :url => BASE_URL + '/reminder',
     }
+
     begin
       client = Twilio::REST::Client.new(ACCOUNT_SID, ACCOUNT_TOKEN)
       client.account.calls.create data
@@ -38,10 +42,6 @@ CALLER_ID = '442033222275'
   def reminder
     @post_to = BASE_URL + '/directions'
     render :action => "reminder.xml.erb", :layout => false
-    @sometext = 'very very long text'
-    	respond_to do |format|
-      format.xml
-   	end
   end
 
   # TwiML response that inspects the caller's menu choice:
