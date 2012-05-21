@@ -1,9 +1,9 @@
 <h1>Twilio API demo</h1>
 <h2 style="color: #ff0000"><%= params['msg'] %></h2>
 <%= form_tag("/reminder/makecall", :method => "post") do %>
-  <%= label_tag(:sometextlabel, "Enter your message") %>
+  <%= label_tag(:sometext, "Enter your message") %>
   <%= text_field_tag(:sometext) %>
-  <%= label_tag(:numberlabel, "Enter your phone number") %>
+  <%= label_tag(:number, "Enter your phone number") %>
   <%= text_field_tag(:number) %>
   <%= submit_tag("Call me!") %>
 <% end %>
