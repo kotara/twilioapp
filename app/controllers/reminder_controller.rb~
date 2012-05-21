@@ -35,7 +35,7 @@ CALLER_ID = '442033222275'
   # TwiML response that reads the reminder to the caller and presents a
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder
-    @sometext = params['sometext']
+    @sometext = 'very very long text'
     	respond_to do |format|
       format.xml
    	end    
