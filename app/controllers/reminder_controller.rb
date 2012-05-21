@@ -9,10 +9,7 @@ BASE_URL = "http://afternoon-window-3794.heroku.com/reminder"
 CALLER_ID = '442033222275'
 
   def index
-    @sometext = 'very very long text'
-    	respond_to do |format|
-      format.xml
-   	end 
+
   end
   # Use the Twilio REST API to initiate an outgoing call
   def makecall
@@ -39,6 +36,7 @@ CALLER_ID = '442033222275'
   # TwiML response that reads the reminder to the caller and presents a
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder   
+
     @post_to = BASE_URL + '/directions'
     render :action => "reminder.xml.erb", :layout => false
   end
