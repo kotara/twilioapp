@@ -26,15 +26,19 @@ CALLER_ID = '442033222275'
       client = Twilio::REST::Client.new(ACCOUNT_SID, ACCOUNT_TOKEN)
       client.account.calls.create data
     rescue StandardError => bang
-      redirect_to :action => '.', 'msg' => "#{$sometext}+Error #{bang}"
+      redirect_to :action => '.', 'msg' => "#{@sometext}+Error #{bang}"
       return
     end
-    redirect_to :action => '', 'msg' => "Calling #{params['number']}...#{$sometext}+blah"
+    redirect_to :action => '', 'msg' => "Calling #{params['number']}...#{@sometext}+blah"
   end
 
   # TwiML response that reads the reminder to the caller and presents a
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder
+    @sometext = 'Check out!'
+    respond_to do |format|
+      format.xml
+    end
     @post_to = BASE_URL + '/directions'
     render :action => "reminder.xml.erb", :layout => false 
   end
