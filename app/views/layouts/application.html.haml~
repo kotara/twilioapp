@@ -21,7 +21,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="reminder#index") Call me
+          %a.brand(href="root_path/reminder") Call me
           .container.nav-collapse
             %ul.nav
               - if user_signed_in?
