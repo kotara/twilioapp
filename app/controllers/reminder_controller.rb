@@ -21,7 +21,7 @@ CALLER_ID = '442033222275'
     data = {
       :from => CALLER_ID,
       :to => params['number'],
-      :url => BASE_URL + '/reminder',
+      :url => BASE_URL + "/reminder?msg=#{CGI::escape(params[:sometext])}",
     }
 
     begin
@@ -31,14 +31,13 @@ CALLER_ID = '442033222275'
       redirect_to :action => '.', 'msg' => "Error #{bang}"
       return
     end
-		session[:sometext]=params[:sometext] 
     redirect_to :action => '', 'msg' => "Calling #{params['number']}..."
   end
 
   # TwiML response that reads the reminder to the caller and presents a
   # short menu: 1. repeat the msg, 2. directions, 3. goodbye
   def reminder
-		@sometext=session[:sometext]
+		@sometext = params[:msg]
 		@post_to = BASE_URL + '/directions'
     render :action => "reminder.xml.erb", :layout => false
   end
